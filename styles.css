@@ -1,3 +1,16 @@
 body {
-    font-family: Arial;
+    background-color: #fec5bb;
+}
+h1 {
+    padding: 2rem;
+}
+.btn-primary {
+    background-color: #b7e4c7;
+    border: 1px solid #b7e4c7;
+    color: white;  
+}
+.btn-primary:hover {
+    background-color: #74c69d;
+    border: 1px solid #74c69d;
+    color: white;  
 }
