@@ -35,4 +35,8 @@ document.getElementById("btn").addEventListener("click", () => {
        console.log(response);
    });
    document.getElementById("task").value = "";
+
+//Run getData() after submitting a new task - with an if statement checking...
+//for tasks that already exist
+    
 });
