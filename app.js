@@ -8,14 +8,25 @@
 //     .then(response => response.json())
 //     .then(data => console.log(data))
 
-fetch("https://test-project-d14cc-default-rtdb.firebaseio.com/task.json")
+function getData() {
+    fetch("https://test-project-d14cc-default-rtdb.firebaseio.com/tasks.json")
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        let taskArr = Object.values(data);
+        for(let i=0; i<taskArr.length; i++) {
+            console.log(taskArr[i].task);
+            let li = document.createElement("li");
+            li.className = "list-group-item";
+            li.innerHTML = taskArr[i].task
+            document.getElementById("task-list").append(li);
+        }
+    });
+} 
 
+getData()
 
 
 document.getElementById("btn").addEventListener("click", () => {
-   console.log("Button clicked");
    console.log(document.getElementById("task").value);
    let newTask = document.getElementById("task").value;
    axios.post('https://test-project-d14cc-default-rtdb.firebaseio.com/tasks.json', {
@@ -24,5 +35,4 @@ document.getElementById("btn").addEventListener("click", () => {
        console.log(response);
    });
    document.getElementById("task").value = "";
-   
 });
